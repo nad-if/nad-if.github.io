@@ -1,4 +1,3 @@
-// Button
 
 
 
@@ -30,7 +29,7 @@ const animationTimeline = () => {
     skewX: "-15deg"
   };
 
-  const tl = new TimelineMax();
+  var tl = new TimelineMax({paused:true});
 
   tl
     .to(".container", 0.1, {
@@ -187,7 +186,7 @@ const animationTimeline = () => {
       0.2
     )
     .from(
-      ".lydia-dp",
+      ".kifa-dp",
       0.5,
       {
         scale: 3.5,
@@ -273,6 +272,12 @@ const animationTimeline = () => {
   // tl.seek("currentStep");
   // tl.timeScale(2);
 
+  // Play Animation on click
+  const plyBtn = document.getElementById("ply");
+  plyBtn.addEventListener("click", () => {
+    tl.play();
+  });
+
   // Restart Animation on click
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
@@ -308,3 +313,12 @@ const resolveFetch = () => {
 };
 
 resolveFetch().then(animationTimeline());
+
+// Button
+var x = document.getElementById("lagu");
+
+function mainkan() {
+  document.getElementById("ply").style.display ="none";
+  x.play();
+  tl.play();
+}
